@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import FileUpload from "@/components/FileUpload";
+import AudioInputSelector from "@/components/AudioInputSelector";
 import GenderTransformControls from "@/components/GenderTransformControls";
 import ProcessingIndicator from "@/components/ProcessingIndicator";
 import ResultsSection from "@/components/ResultsSection";
@@ -151,7 +151,7 @@ export default function Home() {
         <div ref={uploadSectionRef} className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="max-w-3xl mx-auto space-y-6">
             {state === 'upload' && (
-              <FileUpload 
+              <AudioInputSelector 
                 onFileSelect={handleFileSelect}
                 selectedFile={fileData?.file}
                 onClearFile={handleClearFile}
@@ -160,7 +160,7 @@ export default function Home() {
             
             {state === 'ready' && (
               <>
-                <FileUpload 
+                <AudioInputSelector 
                   onFileSelect={handleFileSelect}
                   selectedFile={fileData?.file}
                   onClearFile={handleClearFile}

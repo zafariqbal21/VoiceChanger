@@ -20,7 +20,21 @@ const storage = multer.diskStorage({
     cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
-    const uniqueName = `${randomUUID()}${path.extname(file.originalname)}`;
+    // Get extension from original filename, or use a default based on MIME type
+    let extension = path.extname(file.originalname);
+    if (!extension && file.mimetype) {
+      // Map MIME types to extensions for browser recordings
+      const mimeToExt: Record<string, string> = {
+        'audio/webm': '.webm',
+        'audio/mpeg': '.mp3',
+        'audio/wav': '.wav',
+        'audio/ogg': '.ogg',
+        'audio/mp4': '.m4a',
+        'audio/m4a': '.m4a',
+      };
+      extension = mimeToExt[file.mimetype] || '.webm';
+    }
+    const uniqueName = `${randomUUID()}${extension}`;
     cb(null, uniqueName);
   },
 });
@@ -29,7 +43,16 @@ const upload = multer({
   storage,
   limits: { fileSize: 50 * 1024 * 1024 }, // 50MB limit
   fileFilter: (req, file, cb) => {
-    const allowedMimes = ['audio/mpeg', 'audio/wav', 'audio/mp3', 'audio/x-m4a', 'audio/ogg'];
+    const allowedMimes = [
+      'audio/mpeg', 
+      'audio/wav', 
+      'audio/mp3', 
+      'audio/x-m4a', 
+      'audio/m4a',
+      'audio/ogg', 
+      'audio/webm', // Support for browser microphone recordings
+      'audio/mp4'
+    ];
     if (allowedMimes.includes(file.mimetype) || file.mimetype.startsWith('audio/')) {
       cb(null, true);
     } else {

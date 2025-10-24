@@ -4,6 +4,7 @@ A web-based audio processing application that enables users to transform audio f
 
 ## Features
 
+- **🎤 Microphone Recording**: Record your voice directly in the browser
 - **Audio File Upload**: Drag-and-drop or browse to upload audio files
 - **Gender Transformation**: Slider control with pitch shifting (-4 to +4 semitones)
   - Masculine (0-49): Lower pitch
