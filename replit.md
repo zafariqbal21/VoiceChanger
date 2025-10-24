@@ -2,7 +2,7 @@
 
 ## Overview
 
-Voice Transformer is a web-based audio processing application that enables users to transform audio files with AI-powered gender voice transformation. Users can upload audio files (MP3, WAV, M4A, OGG), adjust transformation parameters using an intuitive slider interface, and download professionally processed results. The application prioritizes clarity, immediate feedback, and privacy-first processing where uploaded audio is never permanently stored.
+Voice Transformer is a web-based audio processing application that enables users to transform audio files with AI-powered gender voice transformation. Users can **record their voice directly in the browser** or upload audio files (MP3, WAV, M4A, OGG, WebM), adjust transformation parameters using an intuitive slider interface, and download professionally processed results. The application is a **Progressive Web App (PWA)** that can be installed on mobile devices and works seamlessly across all platforms. The app prioritizes clarity, immediate feedback, and privacy-first processing where audio is never permanently stored.
 
 ## User Preferences
 
@@ -28,11 +28,14 @@ Preferred communication style: Simple, everyday language.
 - Custom hooks for reusable logic (e.g., `useToast`, `useIsMobile`)
 
 **Key UI Components**:
+- AudioInputSelector: Tab interface to switch between file upload and microphone recording
+- MicrophoneRecorder: Browser-based audio recording with cross-browser support
 - FileUpload: Drag-and-drop zone with file validation
 - AudioPlayer: Waveform display with playback controls
 - GenderTransformControls: Slider-based transformation interface with presets
 - ProcessingIndicator: Loading states during audio transformation
 - ResultsSection: Side-by-side comparison with download functionality
+- InstallPrompt: PWA installation prompt for mobile devices
 
 **Design System**:
 - Spacing units: Consistent Tailwind spacing (3, 4, 6, 8, 12)
@@ -142,10 +145,28 @@ Preferred communication style: Simple, everyday language.
 - No environment variables required for basic operation
 - Optional: DATABASE_URL (for future database features)
 
+### Recent Changes (October 24, 2025)
+
+**Microphone Recording Feature**:
+- Added browser-based voice recording with Web Audio API
+- Cross-browser support: WebM (Chrome/Firefox), MP4 (Safari/iOS)
+- Feature detection with automatic fallback to supported formats
+- Recording timer with visual feedback
+- High-quality audio settings (echo cancellation, noise suppression, 128kbps)
+- Seamless integration with existing upload/transform pipeline
+
+**Progressive Web App (PWA) Enhancements**:
+- Service worker for offline support and faster loading
+- Web app manifest for home screen installation
+- Custom app icons (192px and 512px)
+- Install prompt for mobile users
+- Mobile-optimized meta tags and theme colors
+- Works on iPhone, iPad, Android phones and tablets
+
 ### Deployment Information
 
 **Deployment-Ready**:
-The application is fully portable and can be deployed outside of Replit to any platform that supports Node.js 20+ and FFmpeg. See `README.md` and `DEPLOYMENT.md` for comprehensive deployment guides.
+The application is fully portable and can be deployed outside of Replit to any platform that supports Node.js 20+ and FFmpeg. See `README.md`, `DEPLOYMENT.md`, and `MOBILE.md` for comprehensive deployment guides.
 
 **Requirements**:
 - Node.js 20 or higher
