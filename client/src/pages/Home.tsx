@@ -8,6 +8,7 @@ import ProcessingIndicator from "@/components/ProcessingIndicator";
 import ResultsSection from "@/components/ResultsSection";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
+import InstallPrompt from "@/components/InstallPrompt";
 
 type AppState = 'upload' | 'ready' | 'processing' | 'complete';
 
@@ -187,6 +188,9 @@ export default function Home() {
       </main>
       
       <Footer />
+      
+      {/* PWA Install Prompt */}
+      <InstallPrompt />
     </div>
   );
 }

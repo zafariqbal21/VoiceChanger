@@ -13,6 +13,8 @@ A web-based audio processing application that enables users to transform audio f
 - **Audio Playback**: Compare original vs transformed audio side-by-side
 - **Download**: Get your transformed audio as MP3
 - **Privacy-First**: Files automatically cleaned up after 1 hour
+- **📱 Mobile-Ready**: Fully responsive design, works on all devices
+- **📲 PWA Support**: Install on your phone like a native app
 
 ## Tech Stack
 
@@ -295,6 +297,21 @@ The application uses sensible defaults and doesn't require environment variables
 - Check file size (max 50MB)
 - Ensure file is a valid audio format
 - Check server logs for detailed error messages
+
+## Mobile & PWA
+
+The app is fully mobile-optimized and can be installed as a Progressive Web App (PWA):
+
+**Install on iPhone/iPad:**
+1. Open in Safari
+2. Tap Share → Add to Home Screen
+
+**Install on Android:**
+1. Open in Chrome
+2. Tap "Install" when prompted
+3. Or Menu → Add to Home Screen
+
+See [MOBILE.md](MOBILE.md) for complete mobile setup and testing guide.
 
 ## License
 
