@@ -136,4 +136,37 @@ Preferred communication style: Simple, everyday language.
 - Production build: Vite for client, esbuild for server
 - Server runs on configurable port (defaults to 5000)
 - Static assets served from `dist/public`
-- Environment variables required: DATABASE_URL
+- Fully portable - can be deployed to any Node.js hosting platform
+- Docker support included with Dockerfile
+- Comprehensive deployment guides for Railway, Render, AWS, DigitalOcean, Heroku, etc.
+- No environment variables required for basic operation
+- Optional: DATABASE_URL (for future database features)
+
+### Deployment Information
+
+**Deployment-Ready**:
+The application is fully portable and can be deployed outside of Replit to any platform that supports Node.js 20+ and FFmpeg. See `README.md` and `DEPLOYMENT.md` for comprehensive deployment guides.
+
+**Requirements**:
+- Node.js 20 or higher
+- FFmpeg installed on the server
+- At least 512MB RAM (1GB recommended)
+
+**Supported Platforms**:
+- Railway (recommended - auto-detects FFmpeg)
+- Render (with Dockerfile)
+- DigitalOcean App Platform
+- AWS EC2/Elastic Beanstalk
+- Google Cloud Run
+- Heroku (with FFmpeg buildpack)
+- Fly.io
+- Any VPS with Node.js + FFmpeg
+
+**Quick Deploy**:
+```bash
+npm install
+npm run build
+npm start
+```
+
+The app includes Docker support for containerized deployment on any platform.
