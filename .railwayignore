@@ -1,0 +1,10 @@
+# Ignore files during Railway deployment
+node_modules/
+.git/
+.env.local
+*.log
+uploads/
+outputs/
+dist/
+.replit
+replit.nix
