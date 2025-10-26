@@ -10,7 +10,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install ALL dependencies (including dev dependencies needed for build)
+# Install ALL dependencies (including dev dependencies)
+# Note: Vite is needed at runtime due to import structure
 RUN npm install
 
 # Copy application source
@@ -18,9 +19,6 @@ COPY . .
 
 # Build the application
 RUN npm run build
-
-# Remove dev dependencies after build to save space
-RUN npm prune --omit=dev
 
 # Create directories for uploads and outputs
 RUN mkdir -p uploads outputs
